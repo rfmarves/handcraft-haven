@@ -1,0 +1,33 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Background (transparent) -->
+  <rect width="100%" height="100%" fill="none"></rect>
+
+  <!-- Outer pink ring -->
+  <circle cx="300" cy="300" r="260" fill="none" stroke="#E84B6A" stroke-width="40"></circle>
+
+  <!-- Inner dotted teal ring -->
+  <circle cx="300" cy="300" r="215" fill="none" stroke="#007e8c" stroke-width="12" stroke-dasharray="1 18" stroke-linecap="round"></circle>
+
+  <!-- Main text -->
+  <text x="300" y="270" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="900" fill="#1C1C1C" >
+    Handcraft
+  </text>
+
+  <text x="300" y="325" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="500" fill="#4f5049">
+    Haven
+  </text>
+
+  <!-- Divider line -->
+  <line x1="225" y1="355" x2="375" y2="355" stroke="#f0a900" stroke-width="5" stroke-linecap="round"></line>
+  
+  <line x1="290" y1="345" x2="300" y2="355" stroke="#f0a900" stroke-width="5" stroke-linecap="round"></line>
+  <line x1="300" y1="355" x2="310" y2="345" stroke="#f0a900" stroke-width="5" stroke-linecap="round"></line>
+
+  <!-- Small decorative symbol -->
+  <!--text x="300" y="385" text-anchor="middle" font-family="serif" font-size="24" fill="#f0a900">
+    ✦
+  </text-->
+
+</svg>
