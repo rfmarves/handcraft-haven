@@ -107,12 +107,14 @@
   justify-content: center;
   align-items: center;
   width: 20px;
+  color: black;
 }
 
 .header h1 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: black;
 }
 
 .title {
@@ -129,6 +131,7 @@
   padding: 0.5rem;
   transition: transform 0.2s ease;
   width: 50px;
+  color: black;
 }
 
 .cartButton:hover {

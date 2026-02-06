@@ -1,20 +1,19 @@
-"use client";
-
-import styles from "../page.module.css";
+"use client"
+import { ShoppingCartIcon } from "@heroicons/react/24/solid"
+import styles from "../page.module.css"
 
 export default function CartButton() {
-    const handleCartClick = () => {
-        console.log("Shopping cart clicked");
-        // Cart logic goes here
-    };
+  const handleCartClick = () => {
+    console.log("Shopping cart clicked")
+    // Cart logic goes here
+  }
 
-    return (
-    <button 
-        className={styles.cartButton} 
+  return (
+    <>
+      <ShoppingCartIcon
         onClick={handleCartClick}
-        aria-label="Shopping cart"
-    >
-        🛒
-    </button>
-    )
+        className={styles.cartButton}
+      />
+    </>
+  )
 }
