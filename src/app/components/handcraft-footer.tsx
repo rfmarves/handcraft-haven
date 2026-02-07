@@ -1,4 +1,4 @@
-import styles from "../page.module.css";
+﻿import styles from "../page.module.css";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 export default function HandcraftFooter() {
