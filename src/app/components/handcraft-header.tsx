@@ -1,7 +1,7 @@
 import Image from "next/image";
 import CartButton from "../components/cart-button";
 import styles from "../page.module.css";
-import Navlinks from "./navlinks";
+import Navlinks from "./nav_links";
 
 export default function HandcraftHeader() {
     return (
