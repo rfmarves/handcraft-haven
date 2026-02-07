@@ -121,13 +121,31 @@
 
 /* “imagen” del hero (placeholder bonito) */
 .heroMedia{
-  height: clamp(220px, 24vw, 320px);
+  position: relative;
+  width: 100%;
+  height: 300px;
   border-radius: 18px;
-  background:
-    radial-gradient(220px 220px at 40% 45%, rgba(200,169,106,.35), rgba(200,169,106,0)),
-    linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
-  border: 1px solid rgba(255,255,255,.14);
+  overflow: hidden;
 }
+
+.heroMedia img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .heroMedia {
+    height: 220px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .heroMedia {
+    height: 360px;
+  }
+}
+
 
 /* SECCIONES */
 .section{

@@ -1,4 +1,6 @@
 ﻿import styles from "./page.module.css";
+import Image from "next/image";
+
 import HandcraftHeader from "./components/handcraft-header";
 import HandcraftFooter from "./components/handcraft-footer";
 
@@ -40,7 +42,10 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className={styles.heroMedia} aria-hidden="true" />
+                <div className={styles.heroMedia}>
+  <img src="/hero/hero3.png" alt="Hero image" />
+</div>
+
               </div>
             </div>
           </div>
