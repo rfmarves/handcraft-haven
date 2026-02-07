@@ -2,16 +2,16 @@
   --background: #fafafa;
   --foreground: #fff;
 
-  --text-primary: #1d1a16;
+  --text-primary: #1D1A16;
   --text-secondary: #545049;
 
-  --primary: #a4233d;
-  --primary-dark: #570f1e;
-  --primary-light: #ff9fb3;
+  --primary: #A4233D;
+  --primary-dark: #570F1E;
+  --primary-light: #FF9FB3;
 
-  --accent1: #007e8c;
-  --accent2: #f0a900;
-  --accent3: #7d5cf3;
+  --accent1: #007E8C;
+  --accent2: #F0A900;
+  --accent3: #7D5CF3;
 
   --primary-contrast: var(--background);
   --primary-dark-contrast: var(--background);
@@ -38,7 +38,7 @@
   display: flex;
   min-height: 100vh;
   width: 100%;
-  /* max-width: 800px; */
+  max-width: 800px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
@@ -76,81 +76,59 @@
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--foreground);
-  position: relative;
-  width: 100%;
-}
-
-.headerlinks {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-}
-
-.nav {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 1.5rem;
-
-  padding: 0.75rem 1.5rem;
-}
-
-.headericons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    padding: 1rem 2rem;
+    background-color: var(--foreground);
+    position: relative;
+    width: 100%;
 }
 
 .header h1 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: black;
 }
 
 .title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
 }
 
-.cartButton {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  transition: transform 0.2s ease;
-  width: 50px;
-  color: black;
+.navBlock {
+    display: flex;
+    gap: 1rem;
 }
 
-.cartButton:hover {
-  transform: scale(1.1);
+.headericons {
+    width: 24px;
+    height: 24px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-left: 1rem;
+  }
+
+.headericons:hover {
+    transform: scale(1.1);
 }
 
 .footer {
-  width: 100%;
-  text-align: center;
-  padding: 1rem 2rem;
-  background-color: var(--primary-dark);
-  color: var(--primary-dark-contrast);
-  font-size: 0.9rem;
-  border-top: 1px solid var(--button-secondary-border);
-  width: 100%;
-  position: relative;
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
+    width: 100%;
+    text-align: center;
+    padding: 1rem 2rem;
+    background-color: var(--primary-dark);
+    color: var(--primary-dark-contrast);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--button-secondary-border);
+    width: 100%;
+    position: relative;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
 }
 
 .socialIcons {
@@ -236,7 +214,7 @@ a.secondary {
     filter: invert();
   } */
 
-/* .page {
+  /* .page {
     --background: #000;
     --foreground: #000;
 
