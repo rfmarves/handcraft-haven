@@ -98,16 +98,21 @@
     margin: 0;
 }
 
-.cartButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    transition: transform 0.2s ease;  
+.navBlock {
+    display: flex;
+    gap: 1rem;
 }
 
-.cartButton:hover {
+.headericons {
+    width: 24px;
+    height: 24px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-left: 1rem;
+  }
+
+.headericons:hover {
     transform: scale(1.1);
 }
 
