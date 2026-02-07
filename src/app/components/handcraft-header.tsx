@@ -1,30 +1,22 @@
-import Link from "next/link";
 import Image from "next/image";
-import styles from "./handcraft-header.module.css";
+import styles from "../page.module.css";
+import Navlinks from "./nav_links";
 
 export default function HandcraftHeader() {
-  return (
-    <header className={styles.header}>
-      <div className={styles.container}>
-        <Link href="/" className={styles.logo}>
-          <Image
+    return (
+        <header className={styles.header}>
+            <h1>
+            <Image
+            //   className={styles.logo}
             src="/handcraft-haven-logo.svg"
-            alt="Handcraft Haven"
-            width={160}
-            height={40}
+            alt="Handcraft Haven logo"
+            width={100}
+            height={100}
             priority
-          />
-        </Link>
-
-        <nav className={styles.nav}>
-          <Link href="/catalog">Catalog</Link>
-          <Link href="/sellers">Sellers</Link>
-          <Link href="/dashboard">Dashboard</Link>
-          <Link href="/login" className={styles.cta}>
-            Log in
-          </Link>
-        </nav>
-      </div>
-    </header>
-  );
+            />
+            Handcraft Haven
+            </h1>
+            <Navlinks />
+        </header>
+    )
 }
