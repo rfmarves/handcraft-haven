@@ -1,5 +1,5 @@
 /**import the fetch card function and create a card */
-import { fetchCardData } from "../lib/data"
+import { fetchProduct } from "../lib/data"
 import { Product } from "../lib/definitions"
 
 /**calls the product type defined in the definintions */
@@ -11,7 +11,7 @@ type ProductCardProp = {
  *using js map method into the Product card.
  */
 export default async function CardWrapper() {
-  const data = await fetchCardData()
+  const data = await fetchProduct()
   console.log(data)
 
   return (
@@ -34,7 +34,7 @@ export function ProductCard({ products }: ProductCardProp) {
     <div>
       <h3>{products.name}</h3>
 
-      <p>{products.category}</p>
+      <p>{products.category_id}</p>
 
       {/* Actions to view items and also add items to card. Will complete the logic.
       view will redirect to the product detail page and provide detail information of the item.
