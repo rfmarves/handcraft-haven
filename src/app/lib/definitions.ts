@@ -10,7 +10,7 @@ export type Product = {
   id: string;
   name: string;
   category_id: string;
-  image_url: string;
+  image_filename: string;
   seller_id: string;
   price: number;
   description: string;
@@ -30,7 +30,7 @@ export type User = {
   name: string;
   email: string;
   password: string;
-  image_url: string;
+  image_filename: string;
   role: 'buyer' | 'seller';
 }
 
