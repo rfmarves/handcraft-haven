@@ -1,0 +1,207 @@
+.page{
+  background: transparent;
+  padding: 28px 18px 70px;
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.breadcrumbs{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: rgba(15,23,42,.65);
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.breadcrumbs a{
+  color: rgba(15,23,42,.75);
+  text-decoration: none;
+}
+.breadcrumbs a:hover{ text-decoration: underline; }
+
+.layout{
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.media{
+  width: 100%;
+}
+
+.imageWrap{
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(15,23,42,.10);
+  box-shadow: 0 14px 40px rgba(15,23,42,.10);
+  background: #fff;
+}
+
+.details{
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: 18px;
+  box-shadow: 0 14px 40px rgba(15,23,42,.08);
+  padding: 18px;
+}
+
+.title{
+  margin: 0 0 10px;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+}
+
+.metaRow{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.price{
+  font-weight: 900;
+  font-size: 22px;
+  color: rgba(15,23,42,.95);
+}
+
+.rating{
+  font-weight: 800;
+  color: rgba(15,23,42,.80);
+}
+
+.muted{
+  color: rgba(15,23,42,.55);
+  font-weight: 700;
+}
+
+.description{
+  margin: 0 0 16px;
+  color: rgba(15,23,42,.72);
+  line-height: 1.6;
+}
+
+.actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.primary{
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 0;
+  background: #0f172a;
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.secondary{
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,.14);
+  background: rgba(255,255,255,.60);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.sellerCard{
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 18px;
+}
+
+.sellerLabel{
+  margin: 0;
+  font-size: 12px;
+  color: rgba(15,23,42,.60);
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.sellerName{
+  display: inline-block;
+  margin-top: 4px;
+  font-weight: 900;
+  color: rgba(15,23,42,.95);
+  text-decoration: none;
+}
+.sellerName:hover{ text-decoration: underline; }
+
+.sellerLink{
+  font-weight: 900;
+  color: rgba(15,23,42,.80);
+  text-decoration: none;
+}
+.sellerLink:hover{ text-decoration: underline; }
+
+.reviews{
+  margin-top: 6px;
+}
+
+.sectionTitle{
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.reviewList{
+  display: grid;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.reviewCard{
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(255,255,255,.75);
+}
+
+.reviewName{
+  margin: 0 0 6px;
+  font-weight: 900;
+}
+
+.reviewText{
+  margin: 0;
+  color: rgba(15,23,42,.72);
+  line-height: 1.55;
+}
+
+.reviewBtn{
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,.14);
+  background: rgba(255,255,255,.75);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+@media (max-width: 900px){
+  .layout{
+    grid-template-columns: 1fr;
+  }
+  .imageWrap{
+    height: 320px;
+  }
+}
