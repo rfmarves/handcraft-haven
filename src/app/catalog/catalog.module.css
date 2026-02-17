@@ -1,0 +1,95 @@
+.page{
+  padding: 28px 18px 70px;
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header{
+  margin-bottom: 18px;
+}
+
+.title{
+  margin: 0 0 8px;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle{
+  margin: 0;
+  color: rgba(15,23,42,.70);
+  line-height: 1.6;
+  max-width: 65ch;
+}
+
+.grid{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.card{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: 18px;
+  box-shadow: 0 14px 40px rgba(15,23,42,.08);
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 22px 60px rgba(15,23,42,.14);
+}
+
+.cardImg{
+  position: relative;
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.cardBody{
+  padding: 14px 14px 16px;
+}
+
+.cardTitle{
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.cardMeta{
+  margin: 0 0 10px;
+  color: rgba(15,23,42,.65);
+  font-size: 13px;
+}
+
+.cardRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.price{
+  font-weight: 900;
+  color: rgba(15,23,42,.92);
+}
+
+.view{
+  font-weight: 900;
+  color: rgba(15,23,42,.75);
+}
+
+@media (max-width: 720px){
+  .cardImg{ height: 150px; }
+}
