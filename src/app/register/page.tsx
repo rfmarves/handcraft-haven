@@ -1,12 +1,11 @@
 ﻿import styles from "../page.module.css";
-import HandcraftHeader from "../components/handcraft-header";
-import HandcraftFooter from "../components/handcraft-footer";
+
 
 export default function RegisterPage() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <HandcraftHeader />
+        
 
         <div className={styles.intro}>
           <h2>Create your account</h2>
@@ -151,7 +150,7 @@ export default function RegisterPage() {
           </section>
         </div>
 
-        <HandcraftFooter />
+      
       </main>
     </div>
   );
