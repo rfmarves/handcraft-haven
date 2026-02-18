@@ -1,8 +1,8 @@
 import Link from "next/link";
 import postgres from "postgres";
-
-
 import styles from "../../page.module.css";
+
+export const dynamic = "force-dynamic";
 
 type SellerRow = {
   id: string;
@@ -31,9 +31,27 @@ function getAboutText(name: string) {
 export default async function SellerDetailPage({
   params,
 }: {
+  // ✅ En tu setup, Next te está entregando params como Promise
   params: Promise<{ id: string }>;
 }) {
+  // ✅ Obligatorio: unwrap con await
   const { id } = await params;
+
+  // ✅ Guard extra por si llega vacío (evita crash)
+  if (!id) {
+    return (
+      <div className={styles.page}>
+        <main className={styles.main}>
+          <div style={{ width: "100%", padding: "24px 16px" }}>
+            <h1>Seller not found</h1>
+            <Link href="/sellers" style={{ textDecoration: "underline" }}>
+              ← Back to sellers
+            </Link>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   const sellerRows = await sql<SellerRow[]>`
     SELECT id, name, image_filename, role
@@ -47,14 +65,12 @@ export default async function SellerDetailPage({
     return (
       <div className={styles.page}>
         <main className={styles.main}>
-         
           <div style={{ width: "100%", padding: "24px 16px" }}>
             <h1>Seller not found</h1>
             <Link href="/sellers" style={{ textDecoration: "underline" }}>
               ← Back to sellers
             </Link>
           </div>
-         
         </main>
       </div>
     );
@@ -72,8 +88,6 @@ export default async function SellerDetailPage({
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-   
-
         <div style={{ width: "100%", padding: "24px 16px", maxWidth: 1100, margin: "0 auto" }}>
           <Link href="/sellers" style={{ textDecoration: "underline" }}>
             ← Back to sellers
@@ -189,8 +203,6 @@ export default async function SellerDetailPage({
             )}
           </section>
         </div>
-
-      
       </main>
     </div>
   );
