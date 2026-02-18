@@ -1,4 +1,5 @@
-﻿import styles from "./page.module.css";
+﻿import '@/app/globals.css';
+import styles from "./page.module.css";
 
 
 import HeroSection from "./components/hero-section";

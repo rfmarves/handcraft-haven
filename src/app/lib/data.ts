@@ -59,6 +59,17 @@ export async function fetchUser() {
   }
 }
 
+export async function fetchUserByEmail(email: string) {
+  try {
+    const data = await sql<User[]>`SELECT id, name, email, image_filename, role FROM users WHERE email = ${email}`
+    console.log("data fetched,", data)
+    return data[0] // Return the first user that matches the email
+  } catch (error) {
+    console.error("Database Error:", error)
+    throw new Error("Failed to fetch user data by email.")
+  }
+}
+
 export async function fetchOrder() {
   try {
     const data = await sql<Order[]>`SELECT * FROM orders`
