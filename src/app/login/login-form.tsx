@@ -79,6 +79,9 @@ export default function LoginForm() {
             </>
           )}
         </div>
+        <div>
+          Not registered? <a href="/register">Create an account</a>
+        </div>
       </div>
     </form>
   );
