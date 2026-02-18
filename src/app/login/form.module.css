@@ -55,3 +55,17 @@
 .button:hover {
     background-color: var(--primary);
 }
+
+.errorMessage {
+    background-color: var(--accent2);
+    color: var(--accent2-contrast);
+    margin-bottom: 1rem;    
+    font-weight: 600;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+}

@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import Navlinks from "./nav_links";
 
-export default function HandcraftHeader() {
+export default function HandcraftHeader({ userSession }: { userSession: any }) {
     return (
         <header className={styles.header}>
             <h1>
@@ -16,7 +16,7 @@ export default function HandcraftHeader() {
             />
             Handcraft Haven
             </h1>
-            <Navlinks />
+            <Navlinks userSession={userSession} />
         </header>
     )
 }

@@ -1,19 +1,15 @@
 import styles from "./dashboard.module.css";
 import postgres from "postgres";
-import Image from "next/image";
-// import ProductCard from "@ui/catalog/ProductCard";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-// import { Button } from "../ui/button";
 import { Metadata } from "next";
 import LogoutForm from "./logoutForm";
 import { fetchUserByEmail } from "../lib/data";
-// import { User } from "../lib/definitions";
 import SellerDashboard from "./sellerDashboard";
 import BuyerDashboard from "./buyerDashboard";
 
 export const metadata: Metadata = {
-  title: 'Dashboard',
+  title: 'User Dashboard',
 };
 
 export default async function UserDashboard() {
@@ -23,7 +19,6 @@ export default async function UserDashboard() {
   } else {
     const sql = postgres(process.env.POSTGRES_PRISMA_URL!);
     const currentUser = await fetchUserByEmail(session.user.email);
-    // const products = await sql<Product[]>`SELECT * FROM products JOIN users ON users.id = products.seller_id WHERE users.email = ${session.user.email}`;
     return (
       <div>
         <h1 className={styles.dasboardTitle}>{currentUser.name}'s Dashboard</h1>

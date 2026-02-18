@@ -8,14 +8,14 @@ import {
   SlLogin,
   SlBasket
 } from "react-icons/sl";
-
+import { PiStorefrontLight } from "react-icons/pi";
 /**navigations uses the Link library and usePathname */
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import styles from "../page.module.css"
 
 /**links arrays */
-const links = [
+let links = [
   {
     name: "Home",
     href: "/",
@@ -24,7 +24,7 @@ const links = [
   {
     name: "Sellers Profile",
     href: "/sellers",
-    icon: SlUser,
+    icon: PiStorefrontLight,
   },
   {
     name: "Product Listings",
@@ -44,9 +44,16 @@ const links = [
 ]
 
 /**export the link function. use map to assigne the links to the respective areas */
-export default function Navlinks() {
+export default function Navlinks({ userSession }: { userSession: any }) {
+  if (userSession) {
+    // If the user is logged in, show the profile and logout links instead of login
+    links[3] = {
+      name: "Dashboard",
+      href: "/dashboard",
+      icon: SlUser,
+    };
+  }
   const pathname = usePathname()
-
   return (
     <nav className={styles.navBlock} >
       {links.map((link) => {
@@ -56,6 +63,7 @@ export default function Navlinks() {
             key={link.name}
             href={link.href}
             className={styles.navLink}
+            name={link.name}
           >
             <LinkIcon className={styles.headericons} />
           </Link>
