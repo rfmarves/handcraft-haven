@@ -63,7 +63,6 @@ export default function Navlinks({ userSession }: { userSession: any }) {
             key={link.name}
             href={link.href}
             className={styles.navLink}
-            name={link.name}
           >
             <LinkIcon className={styles.headericons} />
           </Link>

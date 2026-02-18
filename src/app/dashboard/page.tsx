@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 
 export default async function UserDashboard() {
   const session = await auth();
-  if (!session) {
+  if (!session || !session.user || !session.user.email) {
     redirect('/login');
-  } else {
-    const sql = postgres(process.env.POSTGRES_PRISMA_URL!);
-    const currentUser = await fetchUserByEmail(session.user.email);
+  }
+  const sql = postgres(process.env.POSTGRES_PRISMA_URL!);
+  const currentUser = await fetchUserByEmail(session.user.email);
     return (
       <div>
         <h1 className={styles.dasboardTitle}>{currentUser.name}'s Dashboard</h1>
@@ -30,5 +30,4 @@ export default async function UserDashboard() {
         <LogoutForm />
       </div>
     );
-  }
 }
