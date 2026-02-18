@@ -1,6 +1,8 @@
 import Link from "next/link";
-
+import postgres from "postgres";
 import styles from "../page.module.css";
+
+export const dynamic = "force-dynamic";
 
 type Seller = {
   id: string;
@@ -8,22 +10,19 @@ type Seller = {
   image_filename: string | null;
 };
 
-async function getSellers(): Promise<Seller[]> {
-  const base =
-    process.env.NEXT_PUBLIC_BASE_URL ??
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
-
-  const res = await fetch(`${base}/api/sellers`, { cache: "no-store" });
-  if (!res.ok) throw new Error("Failed to load sellers");
-  return (await res.json()) as Seller[];
-}
+const sql = postgres(process.env.DATABASE_URL!, { ssl: "require" });
 
 export default async function SellersPage() {
   let sellers: Seller[] = [];
   let err: string | null = null;
 
   try {
-    sellers = await getSellers();
+    sellers = await sql<Seller[]>`
+      SELECT id, name, image_filename
+      FROM users
+      WHERE role = 'seller'
+      ORDER BY name ASC
+    `;
   } catch (e: any) {
     err = e?.message ?? "Failed to load sellers";
   }
@@ -31,8 +30,6 @@ export default async function SellersPage() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        
-
         <div style={{ width: "100%", maxWidth: 1100, margin: "0 auto", padding: "24px 16px" }}>
           <h1 style={{ margin: 0 }}>Artisan Sellers</h1>
           <p style={{ marginTop: 8, opacity: 0.8 }}>
@@ -91,8 +88,6 @@ export default async function SellersPage() {
             </div>
           )}
         </div>
-
-       
       </main>
     </div>
   );
