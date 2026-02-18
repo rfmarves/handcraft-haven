@@ -1,61 +1,63 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
-import Link from "next/link";
-import styles from "../../page.module.css";
-import { addToCart } from "../../lib/cart-local";
+import { useEffect, useState } from "react"
+import { useParams } from "next/navigation"
+import Link from "next/link"
+import styles from "../../page.module.css"
+import { addToCart } from "../../lib/cart-local"
+import ReviewRatings from "@/app/review/review"
 
 type Product = {
-  id: string;
-  name: string;
-  category_id: string;
-  image_filename: string;
-  seller_id: string;
-  price: number;
-  description: string;
-  featured: boolean;
-};
+  id: string
+  name: string
+  category_id: string
+  image_filename: string
+  seller_id: string
+  price: number
+  description: string
+  featured: boolean
+  comment: string
+}
 
 export default function ProductPage() {
-  const params = useParams();
-  const id = params?.id as string;
+  const params = useParams()
+  const id = params?.id as string
 
-  const [product, setProduct] = useState<Product | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [err, setErr] = useState<string | null>(null);
-  const [added, setAdded] = useState(false);
+  const [product, setProduct] = useState<Product | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [err, setErr] = useState<string | null>(null)
+  const [added, setAdded] = useState(false)
 
   useEffect(() => {
-    if (!id) return;
-
-    (async () => {
+    if (!id) return
+    ;(async () => {
       try {
-        setLoading(true);
-        setErr(null);
+        setLoading(true)
+        setErr(null)
 
-        const res = await fetch(`/api/products/${id}`);
-        if (!res.ok) throw new Error("Failed to load product");
+        const res = await fetch(`/api/products/${id}`)
+        if (!res.ok) throw new Error("No product details found")
 
-        const data = (await res.json()) as Product;
-        setProduct(data);
+        const data = (await res.json()) as Product
+        console.log(data)
+        setProduct(data)
       } catch (e: any) {
-        setErr(e?.message ?? "Failed to load product");
+        setErr(e?.message ?? "Failed to load product")
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    })();
-  }, [id]);
+    })()
+  }, [id])
 
   function handleAdd() {
-    if (!product) return;
-    addToCart(product.id, 1);
-    setAdded(true);
-    setTimeout(() => setAdded(false), 900);
+    if (!product) return
+    addToCart(product.id, 1)
+    setAdded(true)
+    setTimeout(() => setAdded(false), 900)
   }
 
   if (loading) {
-    return <div style={{ padding: 40 }}>Loading...</div>;
+    return <div style={{ padding: 40 }}>Loading...</div>
   }
 
   if (err || !product) {
@@ -64,7 +66,7 @@ export default function ProductPage() {
         <p>Error: {err ?? "Product not found"}</p>
         <Link href="/catalog">← Back to catalog</Link>
       </div>
-    );
+    )
   }
 
   return (
@@ -94,9 +96,7 @@ export default function ProductPage() {
 
         <div>
           <h1>{product.name}</h1>
-          <p style={{ fontSize: 20, fontWeight: 700 }}>
-            ¥{product.price}
-          </p>
+          <p style={{ fontSize: 20, fontWeight: 700 }}>¥{product.price}</p>
           <p>{product.description}</p>
 
           <button
@@ -111,13 +111,11 @@ export default function ProductPage() {
             Add to cart
           </button>
 
-          {added && (
-            <div style={{ marginTop: 10, color: "green" }}>
-              Added!
-            </div>
-          )}
+          {added && <div style={{ marginTop: 10, color: "green" }}>Added!</div>}
+
+          <ReviewRatings details={product.comment} />
         </div>
       </div>
     </div>
-  );
+  )
 }

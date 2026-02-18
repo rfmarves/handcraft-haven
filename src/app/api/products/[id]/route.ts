@@ -1,33 +1,42 @@
-import { NextResponse } from "next/server";
-import postgres from "postgres";
+import { NextResponse } from "next/server"
+import postgres from "postgres"
 
-const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
-const sql = postgres(url!, { ssl: "require" });
+const url = process.env.DATABASE_URL || process.env.POSTGRES_URL
+const sql = postgres(url!, { ssl: "require" })
 
 export async function GET(
   _req: Request,
-  context: { params: Promise<{ id: string }> }
+  context: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = await context.params;
+    const { id } = await context.params
 
     const rows = await sql`
-      SELECT * FROM products
-      WHERE id = ${id}
-      LIMIT 1
-    `;
+     SELECT 
+  products.*,
+  reviews.id AS review_id,
+  reviews.rating,
+  reviews.comment
+FROM products
+LEFT JOIN reviews
+  ON products.id = reviews.product_id
+WHERE products.id = ${id};
 
-    const product = rows[0];
+
+    `
+
+    const product = rows[0]
 
     if (!product) {
-      return NextResponse.json({ error: "Not found" }, { status: 404 });
+      console.log("No Data found")
+      return NextResponse.json({ error: "Not found" }, { status: 404 })
     }
 
-    return NextResponse.json(product);
+    return NextResponse.json(product)
   } catch (e: any) {
     return NextResponse.json(
       { error: e?.message ?? "DB error" },
-      { status: 500 }
-    );
+      { status: 500 },
+    )
   }
 }
